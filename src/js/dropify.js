@@ -384,7 +384,9 @@ Dropify.prototype.isTouchDevice = function()
  */
 Dropify.prototype.getFileType = function()
 {
-    return this.file.name.split('.').pop().toLowerCase();
+    var extension = this.file.name.split('.').pop().toLowerCase();
+    extension  = extension.replace('?' + extension.split('?').pop(), '');
+    return extension;
 };
 
 /**
